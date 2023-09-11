@@ -1,0 +1,44 @@
+{
+  "study-sessions": [
+    {
+      "id": "1",
+      "title": "Vanilla Javascript",
+      "description": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "time": "low",
+      "user_email": "mario@netninja.dev",
+      "study_time": 5399823
+    },
+    {
+      "id": "2",
+      "title": "React",
+      "description": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "time": "medium",
+      "user_email": "mario@netninja.dev",
+      "study_time": 5399823
+    },
+    {
+      "id": "3",
+      "title": "PHP",
+      "description": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask. Nulla in metus arcu. Suspendisse potenti. In vel mauris varius, consectetur Zora ipsum eget, Master Sword porttitor urna. Fusce elementum urna elit, eget eleifend velit consectetur eget. Integer vel lobortis ipsum, vitae auctor Ocarina of Time. Donec sed urna dapibus, interdum magna a, eleifend magna. Curabitur tincidunt enim a neque volutpat. Phasellus auctor magna vel nunc pretium, ut volutpat justo tristique. Pellentesque cursus convallis mauris, in tempus enim tincidunt vitae.",
+      "time": "high",
+      "user_email": "peach@netninja.dev",
+      "study_time": 5399823
+    },
+    {
+      "title": "test",
+      "description": "asdf asdf asdf ",
+      "priority": "low",
+      "user_email": "mario@netninja.dev",
+      "study_time": 5400556,
+      "id": "mn-Arws"
+    },
+    {
+      "title": "Test @2",
+      "description": "qwer rty sadf rtyj z asdfg",
+      "priority": "high",
+      "user_email": "mario@netninja.dev",
+      "study_time": 900272,
+      "id": "lW9Vt1T"
+    }
+  ]
+}
