@@ -13,7 +13,7 @@ export default function DeleteButton({ id }: { id: string }) {
 		setIsLoading(true);
 		// const res = await fetch(`http://localhost:3000/api/study-sessions/${id}`, {
 		const res = await fetch(
-			`https://study-session-tracker-gmlq48f0d-charles-loehle.vercel.app//api/study-sessions/${id}`,
+			`https://study-session-tracker-gmlq48f0d-charles-loehle.vercel.app/api/study-sessions/${id}`,
 			{
 				method: 'DELETE',
 				headers: corsHeaders,
