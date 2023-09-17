@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 		.eq('id', params.id)
 		.single();
 
+	// console.log(studySession);
 	return {
 		title: `${studySession?.title || 'Not found'}`,
 	};

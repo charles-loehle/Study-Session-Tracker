@@ -11,6 +11,7 @@ function DateRangePicker({ selectedDate, onDateChange }: DatePickerProps) {
 	return (
 		<div>
 			<DatePicker
+				required
 				selected={selectedDate}
 				onChange={onDateChange}
 				showTimeSelect

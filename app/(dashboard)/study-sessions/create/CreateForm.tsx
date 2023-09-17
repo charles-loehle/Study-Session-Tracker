@@ -15,21 +15,7 @@ export default function CreateForm() {
 	const [elapsedTime, setElapsedTime] = useState<string>('');
 	const [elapsedTimeInMilliseconds, setElapsedTimeInMilliseconds] =
 		useState<number>(0);
-
-	// const calculateTimeElapsed = () => {
-	// 	if (startDate && endDate) {
-	// 		const elapsedTimeInMilliseconds = endDate.getTime() - startDate.getTime();
-	// 		//console.log(elapsedTimeInMilliseconds);
-	// 		setElapsedTimeInMilliseconds(elapsedTimeInMilliseconds);
-	// 		const hours = Math.floor(elapsedTimeInMilliseconds / 3600000);
-	// 		const minutes = Math.ceil((elapsedTimeInMilliseconds % 3600000) / 60000);
-	// 		setElapsedTime(
-	// 			`${hours} ${hours > 1 ? 'hours' : 'hour'} and ${minutes} minutes`
-	// 		);
-	// 	} else {
-	// 		setElapsedTime('');
-	// 	}
-	// };
+	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		// Calculate elapsed time whenever startDate or endDate changes
@@ -56,6 +42,7 @@ export default function CreateForm() {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		setIsLoading(true);
+		setError(null); // Clear previous errors when a new request starts
 
 		const newStudySession = {
 			title,
@@ -64,27 +51,57 @@ export default function CreateForm() {
 			study_time: elapsedTimeInMilliseconds,
 		};
 
-		const res = await fetch('http://localhost:3000/api/study-sessions', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(newStudySession),
-		});
+		// https://nextjs.org/docs/pages/building-your-application/data-fetching/forms-and-mutations
+		try {
+			const res = await fetch('http://localhost:3000/api/study-sessions', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(newStudySession),
+			});
 
-		// the data we get back from api route POST request
-		const json = await res.json();
+			if (!res.ok) {
+				throw new Error('Failed to submit the data. Please try again.');
+			}
 
-		if (json.error) {
-			console.log(json.error.message);
+			const json = await res.json();
+			// if successful
+			if (json.data) {
+				router.refresh();
+				router.push('/study-sessions');
+			}
+		} catch (error) {
+			// Capture the error message to display to the user
+			if (error instanceof Error) {
+				setError(error.message);
+				console.error(error);
+			}
+		} finally {
+			setIsLoading(false);
 		}
-		// if successful
-		if (json.data) {
-			router.refresh();
-			router.push('/study-sessions');
-		}
+
+		// const res = await fetch('http://localhost:3000/api/study-sessions', {
+		// 	method: 'POST',
+		// 	headers: { 'Content-Type': 'application/json' },
+		// 	body: JSON.stringify(newStudySession),
+		// });
+
+		// // the data we get back from api route POST request
+		// const json = await res.json();
+
+		// if (json.error) {
+		// 	console.log(json.error.message);
+		// 	throw new Error('Could not add new study session');
+		// }
+		// // if successful
+		// if (json.data) {
+		// 	router.refresh();
+		// 	router.push('/study-sessions');
+		// }
 	};
 
 	return (
 		<div className="row justify-content-center">
+			{error && <div style={{ color: 'red' }}>{error}</div>}
 			<form onSubmit={handleSubmit} className="col-lg-6">
 				<div className="mb-3">
 					<label className="form-label">Title</label>

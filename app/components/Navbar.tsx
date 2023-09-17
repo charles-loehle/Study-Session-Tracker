@@ -31,15 +31,6 @@ export default function Navbar({ user }: any) {
 								Study Sessions
 							</Link>
 						</li>
-						<li className="nav-item">
-							<Link
-								href="/study-sessions/create"
-								className="nav-link"
-								aria-disabled="true"
-							>
-								New Session
-							</Link>
-						</li>
 					</ul>
 					<div className="d-flex align-items-center">
 						{user && <p className="me-4 mb-0">Hello, {user.email}</p>}

@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
+// POST - create
 export async function POST(request: Request) {
 	const studySession = await request.json();
 	// get supabase instance
@@ -20,6 +21,10 @@ export async function POST(request: Request) {
 		.insert({ ...studySession, user_email: session?.user.email })
 		.select()
 		.single();
+
+	if (error) {
+		throw new Error('Could not add new study session');
+	}
 
 	return NextResponse.json({ data, error });
 }
