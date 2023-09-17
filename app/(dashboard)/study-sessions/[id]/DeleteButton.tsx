@@ -11,10 +11,14 @@ export default function DeleteButton({ id }: { id: string }) {
 
 	const handleClick = async () => {
 		setIsLoading(true);
-		const res = await fetch(`http://localhost:3000/api/study-sessions/${id}`, {
-			method: 'DELETE',
-			headers: corsHeaders,
-		});
+		// const res = await fetch(`http://localhost:3000/api/study-sessions/${id}`, {
+		const res = await fetch(
+			`https://study-session-tracker-gmlq48f0d-charles-loehle.vercel.app//api/study-sessions/${id}`,
+			{
+				method: 'DELETE',
+				headers: corsHeaders,
+			}
+		);
 		const json = await res.json();
 
 		if (json.error) {
