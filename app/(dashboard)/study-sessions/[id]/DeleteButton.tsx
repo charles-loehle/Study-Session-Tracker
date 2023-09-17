@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { useRouter } from 'next/navigation';
+import { corsHeaders } from '@/supabase-functions/_shared/cors';
 
 export default function DeleteButton({ id }: { id: string }) {
 	const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +13,7 @@ export default function DeleteButton({ id }: { id: string }) {
 		setIsLoading(true);
 		const res = await fetch(`http://localhost:3000/api/study-sessions/${id}`, {
 			method: 'DELETE',
+			headers: corsHeaders,
 		});
 		const json = await res.json();
 

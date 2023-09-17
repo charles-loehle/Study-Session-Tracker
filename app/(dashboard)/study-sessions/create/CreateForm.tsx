@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, FormEvent } from 'react';
 import DateRangePicker from './DateRangePicker';
+import { corsHeaders } from '@/supabase-functions/_shared/cors';
 
 export default function CreateForm() {
 	const router = useRouter();
@@ -55,7 +56,7 @@ export default function CreateForm() {
 		try {
 			const res = await fetch('http://localhost:3000/api/study-sessions', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: { 'Content-Type': 'application/json', ...corsHeaders },
 				body: JSON.stringify(newStudySession),
 			});
 
